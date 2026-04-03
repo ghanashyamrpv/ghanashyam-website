@@ -1,65 +1,203 @@
-import Image from "next/image";
+'use client'
+import Link from 'next/link'
+
+const recentWork = [
+  {
+    type: 'Research',
+    title: 'Statistical Modelling in Interdisciplinary Contexts',
+    desc: 'How statistical frameworks adapt when applied across scientific disciplines — case studies in biology, economics, and social sciences.',
+    year: '2024',
+    status: 'Ongoing',
+    href: '/research',
+  },
+  {
+    type: 'Tutorial',
+    title: 'Understanding p-values without the confusion',
+    desc: 'A clear, honest explanation of what p-values actually mean, what they don\'t mean, and how to use them correctly.',
+    year: '2024',
+    status: 'Published',
+    href: '/tutorials',
+  },
+  {
+    type: 'Research',
+    title: 'Probabilistic Inference Methods',
+    desc: 'A survey of modern approaches to Bayesian and frequentist inference with focus on practical applications.',
+    year: '2024',
+    status: 'Ongoing',
+    href: '/research',
+  },
+]
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
+    <main className="page-wrapper">
+
+      {/* ── Hero ── */}
+      <section style={{ padding: 'clamp(60px,8vw,100px) 24px clamp(48px,6vw,72px)' }}>
+        <div className="container-narrow">
+          <span className="eyebrow fade-1">Statistics · Research · Tutorials</span>
+
+          <h1 className="fade-2" style={{ marginBottom: '20px' }}>
+            Ghanashyam<br />R P V
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+
+          <p className="fade-3" style={{
+            fontSize: 'clamp(16px,2vw,19px)',
+            color: 'var(--ink-3)',
+            lineHeight: 1.75,
+            maxWidth: '560px',
+            marginBottom: '32px',
+            fontFamily: 'var(--font-serif)',
+            fontStyle: 'italic',
+            fontWeight: 400,
+          }}>
+            Statistics researcher and student exploring interdisciplinary problems.
+            I document my research and share knowledge through tutorials and writing.
           </p>
+
+          <div className="fade-4" style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+            <Link href="/research" className="btn btn-primary">View Research</Link>
+            <Link href="/tutorials" className="btn btn-outline">Browse Tutorials</Link>
+          </div>
+
+          {/* Thin rule */}
+          <div style={{ borderTop: '1px solid var(--rule)', marginTop: '56px' }} className="fade-5" />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* ── About strip ── */}
+      <section style={{ padding: '0 24px 72px' }}>
+        <div className="container-narrow">
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+            gap: '32px',
+          }}>
+            {[
+              { icon: '📐', title: 'Statistics', body: 'Probability, inference, modelling — the core tools I use to understand the world.' },
+              { icon: '🔬', title: 'Interdisciplinary', body: 'Applying statistical thinking beyond traditional boundaries.' },
+              { icon: '✍️', title: 'Open Knowledge', body: 'Writing tutorials and research notes publicly, because good ideas should be shared.' },
+            ].map(item => (
+              <div key={item.title}>
+                <div style={{ fontSize: '24px', marginBottom: '10px' }}>{item.icon}</div>
+                <h4 style={{ marginBottom: '6px', fontFamily: 'var(--font-sans)', letterSpacing: 0 }}>{item.title}</h4>
+                <p style={{ fontSize: '14px', color: 'var(--ink-3)', margin: 0, lineHeight: 1.65 }}>{item.body}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      </main>
-    </div>
-  );
+      </section>
+
+      {/* ── Recent work ── */}
+      <section style={{ padding: '0 24px 80px' }}>
+        <div className="container-narrow">
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '28px', flexWrap: 'wrap', gap: '8px' }}>
+            <h2 style={{ fontSize: '1.3rem' }}>Recent Work</h2>
+            <Link href="/research" style={{ fontSize: '13px', color: 'var(--accent)', textDecoration: 'none', fontFamily: 'var(--font-sans)' }}>
+              All research →
+            </Link>
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1px', border: '1px solid var(--rule)', borderRadius: '10px', overflow: 'hidden' }}>
+            {recentWork.map((item, i) => (
+              <Link key={i} href={item.href} style={{
+                display: 'flex',
+                gap: '20px',
+                alignItems: 'flex-start',
+                padding: '20px 24px',
+                background: 'var(--paper-2)',
+                borderBottom: i < recentWork.length - 1 ? '1px solid var(--rule)' : 'none',
+                textDecoration: 'none',
+                transition: 'background 0.15s',
+              }}
+              onMouseEnter={e => e.currentTarget.style.background = 'var(--paper-3)'}
+              onMouseLeave={e => e.currentTarget.style.background = 'var(--paper-2)'}
+              >
+                <div style={{ paddingTop: '3px', flexShrink: 0 }}>
+                  <span className="tag">{item.type}</span>
+                </div>
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <h3 style={{ fontSize: '15px', fontFamily: 'var(--font-sans)', fontWeight: '600', marginBottom: '4px', color: 'var(--ink)' }}>
+                    {item.title}
+                  </h3>
+                  <p style={{ fontSize: '13px', color: 'var(--ink-3)', margin: 0, lineHeight: 1.6 }}>{item.desc}</p>
+                </div>
+                <div style={{ flexShrink: 0, textAlign: 'right' }}>
+                  <span style={{ fontSize: '12px', color: 'var(--ink-4)', fontFamily: 'var(--font-sans)', display: 'block' }}>{item.year}</span>
+                  <span style={{
+                    fontSize: '11px',
+                    color: item.status === 'Ongoing' ? 'var(--accent)' : 'var(--ink-4)',
+                    fontFamily: 'var(--font-sans)',
+                    fontWeight: '600',
+                  }}>{item.status}</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Tutorials teaser ── */}
+      <section style={{ padding: '0 24px 80px' }}>
+        <div className="container-narrow">
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '28px', flexWrap: 'wrap', gap: '8px' }}>
+            <h2 style={{ fontSize: '1.3rem' }}>Tutorial Series</h2>
+            <Link href="/tutorials" style={{ fontSize: '13px', color: 'var(--accent)', textDecoration: 'none', fontFamily: 'var(--font-sans)' }}>
+              All tutorials →
+            </Link>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '12px' }}>
+            {[
+              { title: 'Statistics Fundamentals', count: '6 chapters', desc: 'Probability, distributions, hypothesis testing — built from the ground up.', tag: 'Beginner' },
+              { title: 'Bayesian Methods', count: '4 chapters', desc: 'Intuition-first approach to Bayesian reasoning and inference.', tag: 'Intermediate' },
+              { title: 'Python for Research', count: '5 chapters', desc: 'Practical statistical analysis using pandas, scipy, and statsmodels.', tag: 'Beginner' },
+            ].map(s => (
+              <Link key={s.title} href="/tutorials" style={{ textDecoration: 'none' }}>
+                <div className="card" style={{ height: '100%' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
+                    <span className="tag">{s.tag}</span>
+                    <span style={{ fontSize: '11px', color: 'var(--ink-4)', fontFamily: 'var(--font-sans)' }}>{s.count}</span>
+                  </div>
+                  <h3 style={{ fontSize: '15px', fontFamily: 'var(--font-sans)', fontWeight: '600', marginBottom: '6px', color: 'var(--ink)' }}>
+                    {s.title}
+                  </h3>
+                  <p style={{ fontSize: '13px', color: 'var(--ink-3)', margin: 0, lineHeight: 1.6 }}>{s.desc}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <section style={{ padding: '0 24px 100px' }}>
+        <div className="container-narrow">
+          <div style={{
+            background: 'var(--paper-2)',
+            border: '1px solid var(--rule)',
+            borderLeft: '3px solid var(--accent)',
+            borderRadius: '10px',
+            padding: 'clamp(24px,4vw,40px)',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            flexWrap: 'wrap',
+            gap: '20px',
+          }}>
+            <div>
+              <h3 style={{ fontFamily: 'var(--font-sans)', marginBottom: '6px' }}>Open to collaboration</h3>
+              <p style={{ margin: 0, fontSize: '14px', color: 'var(--ink-3)' }}>
+                Research collaborations, feedback on tutorials, or just a conversation about statistics.
+              </p>
+            </div>
+            <Link href="/contact" className="btn btn-primary" style={{ flexShrink: 0 }}>
+              Get in touch →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  )
 }
