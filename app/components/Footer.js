@@ -16,11 +16,14 @@ export default function Footer() {
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
             <span style={{
               width: '28px', height: '28px',
-              background: 'var(--accent)', color: '#fff',
-              borderRadius: '5px', display: 'flex', alignItems: 'center',
-              justifyContent: 'center', fontFamily: 'var(--font-serif)',
-              fontWeight: '700', fontSize: '15px',
-            }}>Σ</span>
+              background: 'var(--btn-primary-bg)',
+              color: 'var(--btn-primary-text)',
+              borderRadius: '5px',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              fontFamily: 'Georgia, serif',
+              fontWeight: '700',
+              fontSize: '15px',
+            }}>{String.fromCharCode(947)}</span>
             <span style={{ fontFamily: 'var(--font-serif)', fontWeight: '600', fontSize: '14px', color: 'var(--ink)' }}>
               Ghanashyam R P V
             </span>

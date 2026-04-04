@@ -1,51 +1,61 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
-/* ── Reset ── */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; font-size: 16px; }
 
-/* ── Design tokens ── */
+/* ── Light mode tokens ── */
 :root {
-  --paper:       #f7f4ef;
-  --paper-2:     #f0ece4;
-  --paper-3:     #e8e2d8;
-  --ink:         #1a1814;
-  --ink-2:       #3d3830;
-  --ink-3:       #6b6459;
-  --ink-4:       #9e9488;
-  --rule:        #ddd8cf;
-  --accent:      #b5451b;
-  --accent-dim:  rgba(181,69,27,0.10);
-  --accent-mid:  rgba(181,69,27,0.30);
-  --link:        #1d4ed8;
-  --code-bg:     #ede9e1;
+  --paper:      #f7f4ef;
+  --paper-2:    #f0ece4;
+  --paper-3:    #e8e2d8;
+  --ink:        #1a1814;
+  --ink-2:      #3d3830;
+  --ink-3:      #6b6459;
+  --ink-4:      #9e9488;
+  --rule:       #ddd8cf;
+  --accent:     #1a1814;
+  --accent-dim: rgba(26,24,20,0.07);
+  --accent-mid: rgba(26,24,20,0.20);
+  --link:       #1a1814;
+  --code-bg:    #ede9e1;
+  --btn-primary-bg:   #1a1814;
+  --btn-primary-text: #f7f4ef;
+  --btn-outline-text: #3d3830;
+  --tag-bg:     rgba(26,24,20,0.07);
+  --tag-color:  #1a1814;
+  --tag-border: rgba(26,24,20,0.18);
 
-  --font-serif:  'Lora', Georgia, serif;
-  --font-sans:   'Source Sans 3', system-ui, sans-serif;
-  --font-mono:   'JetBrains Mono', monospace;
-
-  --radius:      6px;
-  --shadow:      0 1px 4px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06);
-  --shadow-lg:   0 2px 8px rgba(0,0,0,0.10), 0 8px 32px rgba(0,0,0,0.08);
+  --font-serif: 'Lora', Georgia, serif;
+  --font-sans:  'Source Sans 3', system-ui, sans-serif;
+  --font-mono:  'JetBrains Mono', monospace;
+  --radius:     6px;
+  --shadow:     0 1px 4px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06);
+  --shadow-lg:  0 2px 8px rgba(0,0,0,0.10), 0 8px 32px rgba(0,0,0,0.08);
 }
 
-/* ── Dark mode ── */
+/* ── Dark mode tokens ── */
 [data-theme="dark"] {
-  --paper:       #111008;
-  --paper-2:     #1a1814;
-  --paper-3:     #242018;
-  --ink:         #f0ece4;
-  --ink-2:       #d4cfc6;
-  --ink-3:       #9e9488;
-  --ink-4:       #6b6459;
-  --rule:        #2a2620;
-  --accent:      #e8602e;
-  --accent-dim:  rgba(232,96,46,0.12);
-  --accent-mid:  rgba(232,96,46,0.30);
-  --link:        #60a5fa;
-  --code-bg:     #1e1c14;
-  --shadow:      0 1px 4px rgba(0,0,0,0.3), 0 4px 16px rgba(0,0,0,0.2);
-  --shadow-lg:   0 2px 8px rgba(0,0,0,0.4), 0 8px 32px rgba(0,0,0,0.3);
+  --paper:      #111008;
+  --paper-2:    #1a1814;
+  --paper-3:    #242018;
+  --ink:        #f0ece4;
+  --ink-2:      #d4cfc6;
+  --ink-3:      #9e9488;
+  --ink-4:      #6b6459;
+  --rule:       #2e2a22;
+  --accent:     #f0ece4;
+  --accent-dim: rgba(240,236,228,0.08);
+  --accent-mid: rgba(240,236,228,0.20);
+  --link:       #f0ece4;
+  --code-bg:    #1e1c14;
+  --btn-primary-bg:   #f0ece4;
+  --btn-primary-text: #111008;
+  --btn-outline-text: #9e9488;
+  --tag-bg:     rgba(240,236,228,0.08);
+  --tag-color:  #d4cfc6;
+  --tag-border: rgba(240,236,228,0.15);
+  --shadow:     0 1px 4px rgba(0,0,0,0.3), 0 4px 16px rgba(0,0,0,0.2);
+  --shadow-lg:  0 2px 8px rgba(0,0,0,0.4), 0 8px 32px rgba(0,0,0,0.3);
 }
 
 /* ── Base ── */
@@ -59,17 +69,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Subtle paper texture */
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 9999;
-}
-
-/* ── Typography ── */
 h1, h2, h3, h4, h5 {
   font-family: var(--font-serif);
   color: var(--ink);
@@ -93,7 +92,7 @@ code {
   background: var(--code-bg);
   padding: 2px 6px;
   border-radius: 3px;
-  color: var(--accent);
+  color: var(--ink-2);
 }
 
 pre {
@@ -107,7 +106,7 @@ pre {
 pre code { background: none; padding: 0; color: var(--ink-2); }
 
 blockquote {
-  border-left: 3px solid var(--accent);
+  border-left: 3px solid var(--ink);
   padding: 0.5rem 0 0.5rem 1.25rem;
   margin: 1.5em 0;
   color: var(--ink-3);
@@ -116,27 +115,26 @@ blockquote {
 }
 
 hr { border: none; border-top: 1px solid var(--rule); margin: 2.5em 0; }
-
 img { max-width: 100%; height: auto; border-radius: var(--radius); }
 
-/* ── Layout helpers ── */
-.container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
-.container-narrow { max-width: 720px; margin: 0 auto; padding: 0 24px; }
-.page-wrapper { min-height: 100vh; padding-top: 64px; }
+/* ── Layout ── */
+.container        { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+.container-narrow { max-width: 720px;  margin: 0 auto; padding: 0 24px; }
+.page-wrapper     { min-height: 100vh; padding-top: 64px; }
 
-/* ── Section labels ── */
+/* ── Eyebrow ── */
 .eyebrow {
   font-family: var(--font-sans);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--ink-3);
   margin-bottom: 10px;
   display: block;
 }
 
-/* ── Cards ── */
+/* ── Card ── */
 .card {
   background: var(--paper-2);
   border: 1px solid var(--rule);
@@ -144,13 +142,8 @@ img { max-width: 100%; height: auto; border-radius: var(--radius); }
   padding: 24px;
   transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
 }
-.card:hover {
-  box-shadow: var(--shadow);
-  border-color: var(--accent-mid);
-  transform: translateY(-2px);
-}
 
-/* ── Tag pill ── */
+/* ── Tag ── */
 .tag {
   display: inline-block;
   font-family: var(--font-sans);
@@ -160,9 +153,9 @@ img { max-width: 100%; height: auto; border-radius: var(--radius); }
   text-transform: uppercase;
   padding: 3px 10px;
   border-radius: 100px;
-  background: var(--accent-dim);
-  color: var(--accent);
-  border: 1px solid var(--accent-mid);
+  background: var(--tag-bg);
+  color: var(--tag-color);
+  border: 1px solid var(--tag-border);
   text-decoration: none;
 }
 
@@ -182,20 +175,20 @@ img { max-width: 100%; height: auto; border-radius: var(--radius); }
   border: none;
 }
 .btn-primary {
-  background: var(--accent);
-  color: #fff;
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
 }
-.btn-primary:hover { opacity: 0.88; transform: translateY(-1px); text-decoration: none; color: #fff; }
+.btn-primary:hover { opacity: 0.85; transform: translateY(-1px); text-decoration: none; }
 
 .btn-outline {
   background: transparent;
-  color: var(--ink-2);
+  color: var(--btn-outline-text);
   border: 1px solid var(--rule);
 }
-.btn-outline:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.btn-outline:hover { border-color: var(--ink-3); color: var(--ink); text-decoration: none; }
 
-/* ── Divider rule ── */
-.rule { width: 40px; height: 2px; background: var(--accent); margin: 16px 0 24px; }
+/* ── Rule ── */
+.rule { width: 40px; height: 2px; background: var(--ink); margin: 16px 0 24px; }
 
 /* ── Animations ── */
 @keyframes fadeUp {
@@ -212,13 +205,8 @@ img { max-width: 100%; height: auto; border-radius: var(--radius); }
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: var(--paper); }
 ::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: var(--ink-4); }
 
-/* ── KaTeX math overrides ── */
-.katex { font-size: 1.05em; }
-.math-block { overflow-x: auto; padding: 1rem 0; text-align: center; }
-
-/* ── Figure / image caption ── */
+/* ── Figure ── */
 figure { margin: 2em 0; }
 figure img { width: 100%; border: 1px solid var(--rule); }
 figcaption {
@@ -232,6 +220,10 @@ figcaption {
 
 /* ── Table ── */
 table { width: 100%; border-collapse: collapse; margin: 1.5em 0; font-size: 14px; }
-th { background: var(--paper-3); font-family: var(--font-sans); font-weight: 600; text-align: left; padding: 10px 14px; border-bottom: 2px solid var(--rule); }
+th { background: var(--paper-3); font-family: var(--font-sans); font-weight: 600; text-align: left; padding: 10px 14px; border-bottom: 2px solid var(--rule); color: var(--ink); }
 td { padding: 9px 14px; border-bottom: 1px solid var(--rule); color: var(--ink-2); }
 tr:last-child td { border-bottom: none; }
+
+/* ── KaTeX ── */
+.katex { font-size: 1.05em; }
+.math-block { overflow-x: auto; padding: 1rem 0; text-align: center; }

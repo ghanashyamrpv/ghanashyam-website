@@ -44,16 +44,16 @@ export default function Navbar() {
         }}>
           <span style={{
             width: '32px', height: '32px',
-            background: 'var(--accent)',
-            color: '#fff',
+            background: 'var(--btn-primary-bg)',
+            color: 'var(--btn-primary-text)',
             borderRadius: '6px',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontFamily: 'var(--font-serif)',
+            fontFamily: 'Georgia, serif',
             fontWeight: '700',
-            fontSize: '18px',
+            fontSize: '20px',
             lineHeight: 1,
             flexShrink: 0,
-          }}>Σ</span>
+          }}>{String.fromCharCode(947)}</span>
           <span style={{
             fontFamily: 'var(--font-serif)',
             fontWeight: '600',
