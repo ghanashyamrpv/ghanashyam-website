@@ -1,3 +1,17 @@
+export async function generateStaticParams() {
+  const series = [
+    { slug: 'statistics-fundamentals', chapters: 6 },
+    { slug: 'bayesian-methods', chapters: 4 },
+    { slug: 'python-for-research', chapters: 5 },
+  ]
+  return series.flatMap(s =>
+    Array.from({ length: s.chapters }, (_, i) => ({
+      series: s.slug,
+      chapter: String(i + 1),
+    }))
+  )
+}
+
 import Link from 'next/link'
 import { use } from 'react'
 
